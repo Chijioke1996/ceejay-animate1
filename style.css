@@ -1,0 +1,138 @@
+*, ::after, ::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #282c34; /* Matching color scheme */
+    font-family: 'Arial', sans-serif;
+    color: #f0f0f0;
+}
+
+.container {
+    width: 500px;
+    height: 500px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.atom {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.orbit {
+    position: absolute;
+    border: 2px solid #61dafb;
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+}
+
+.orbit1 {
+    width: 200px;
+    height: 100px;
+    top: 50px;
+    left: 0;
+    transform: rotate(45deg);
+    animation-duration: 3s;
+}
+
+.orbit2 {
+    width: 200px;
+    height: 100px;
+    top: 50px;
+    left: 0;
+    transform: rotate(-45deg);
+    animation-duration: 3s;
+}
+
+.orbit3 {
+    width: 100px;
+    height: 200px;
+    top: 0;
+    left: 50px;
+    animation-duration: 3s;
+}
+
+.electron {
+    width: 15px;
+    height: 15px;
+    background-color: #ffcc00;
+    border-radius: 50%;
+    position: absolute;
+    top: -7.5px;
+    left: 92.5px; /* Center the electron on the orbit */
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.ticket {
+    width: 140px;
+    height: 60px;
+    background-color: rgb(24, 167, 24); /* Tomato color */
+    border: 3px dashed #ffffff;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.ticket-content {
+    text-align: center;
+    font-weight: bold;
+}
+
+.ticket-content p:first-child {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.ticket-content p:last-child {
+    font-size: 0.9em;
+}
+
+.ticket.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.hidden {
+    display: none;
+}
+
+#draw-button {
+    background-color: black;
+    border: 2px solid gold;
+    color: white;
+    width: 130px;
+    height: 40px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+#draw-button:hover {
+    background-color: lightgray;
+    color: black;
+    border: 2px solid black;
+}
